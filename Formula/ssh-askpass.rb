@@ -1,5 +1,5 @@
 class SshAskpass < Formula
-  desc "The ssh-askpass util for MacOS"
+  desc "The ssh-askpass util for macOS X"
   homepage "https://github.com/gaelicWizard/ssh-askpass/"
   url "https://github.com/gaelicWizard/ssh-askpass/archive/v1.2.2.tar.gz"
   sha256 "a32e8bccbe44adddab3192cc4263d2c2d7f0fc2613ee80be4fcf46e233cea970"
