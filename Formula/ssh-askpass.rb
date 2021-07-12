@@ -14,8 +14,4 @@ class SshAskpass < Formula
       brew services start #{name}
     EOF
   end
-
-  test do
-    system "true"
-  end
 end
