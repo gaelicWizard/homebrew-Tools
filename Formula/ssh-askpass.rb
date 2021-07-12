@@ -1,8 +1,8 @@
 class SshAskpass < Formula
   desc "The ssh-askpass util for macOS X"
   homepage "https://github.com/gaelicWizard/ssh-askpass/"
-  url "https://github.com/gaelicWizard/ssh-askpass/archive/v1.2.2.tar.gz"
-  sha256 "a32e8bccbe44adddab3192cc4263d2c2d7f0fc2613ee80be4fcf46e233cea970"
+  url "https://github.com/gaelicWizard/ssh-askpass/archive/v1.2.2-jp2.tar.gz"
+  sha256 "76bbac3a5d2041d4b8a09455c84857e2fe9725b073be8f54222a4e1d7165aafd"
 
   def install
     bin.install "#{name}"
