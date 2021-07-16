@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><!-- $Id$ -->
+	<string>gnu.GNUstep</string>
+	<key>ServiceDescription</key>
+	<string>GNUstep ($Id$)</string>
+	<key>Program</key>
+	<string>/bin/sh</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>sh</string>
+		<string>-pc</string>
+		<string>#!/bin/bash
+: ${GNUSTEP_MAKE_STRICT_V2_MODE:=yes} ${GNUSTEP_SH_EXPORT_ALL_VARIABLES:=yes}
+source "${GNUSTEP_MAKEFILES:=/Library/GNUstep/Makefiles}/GNUstep.sh"
+
+IFS=$'\n'
+for tehEnv in "${!GNUSTEP_SYSTEM_@}" "${!GNUSTEP_NETWORK_@}" "${!GNUSTEP_LOCAL_@}" "${!GNUSTEP_USER_@}" GNUSTEP_MAKEFILES
+do
+    echo launchctl setenv "$tehEnv" "${!tehEnv}"
+done
+		</string>
+	</array>
+	<key>WatchPaths</key>
+	<array>
+		<string>/Library/GNUstep/GNUstep.conf</string>
+		<string>~/Library/Preferences/GNUstep.conf</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>

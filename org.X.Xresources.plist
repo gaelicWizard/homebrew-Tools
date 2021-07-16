@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><!-- $Id -->
+	<string>org.X.Xresources</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>xrdb</string>
+		<string>-merge</string>
+		<string>~/.Xresources</string>
+<string>
+# see also $XENVIRONMENT
+
+shopt -s extglob
+IFS=$'\n'
+for resource in "${XAPPLRESDIR:=~/.config/X11}"/!(*.*)
+do # Import all non-executable files without extension, except Xauthority
+	[ -x "$resource" ] || xrdb -merge "$resource"
+done
+</string>
+	</array>
+	<key>ServiceDescription</key>
+	<string>X Resource Database Utility ($Id$)</string>
+	<key>WatchPaths</key>
+	<array>
+		<string>~/.Xresources</string>
+		<string>~/Library/Preferences/X11</string>
+	</array>
+</dict>
+</plist>
