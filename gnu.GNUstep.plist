@@ -12,20 +12,27 @@
 	<array>
 		<string>sh</string>
 		<string>-pc</string>
-		<string>#!/bin/bash
-: ${GNUSTEP_MAKE_STRICT_V2_MODE:=yes} ${GNUSTEP_SH_EXPORT_ALL_VARIABLES:=yes}
-source "${GNUSTEP_MAKEFILES:=/Library/GNUstep/Makefiles}/GNUstep.sh"
+		<string>: ${GNUSTEP_MAKE_STRICT_V2_MODE:=yes} ${GNUSTEP_SH_EXPORT_ALL_VARIABLES:=yes}
+
+launchctl setenv GNUSTEP_USER_CONFIG_FILE "${GNUSTEP_USER_CONFIG_FILE:=~/Library/Preferences/GNUstep.conf}" &amp;
+
+[[ -d "${GNUSTEP_MAKEFILES:-}" ]] || unset GNUSTEP_MAKEFILES
+[[ -d "${GNUSTEP_MAKEFILES:=/Library/GNUstep/Makefiles}" ]] || unset GNUSTEP_MAKEFILES
+[[ -d "${GNUSTEP_MAKEFILES:=/usr/local/share/GNUstep/Makefiles}" ]] || unset GNUSTEP_MAKEFILES
+
+source "${GNUSTEP_MAKEFILES}/GNUstep.sh" || source "${GNUSTEP_USER_CONFIG_FILE}" || exit -1
 
 IFS=$'\n'
-for tehEnv in "${!GNUSTEP_SYSTEM_@}" "${!GNUSTEP_NETWORK_@}" "${!GNUSTEP_LOCAL_@}" "${!GNUSTEP_USER_@}" GNUSTEP_MAKEFILES
+for tehEnv in GNUSTEP_MAKEFILES GNUSTEP_USER_LIBRARY GNUSTEP_USER_DEFAULTS_DIR GNUSTEP_USER_APPLICATION_SUPPORT # "${!GNUSTEP_SYSTEM_@}" "${!GNUSTEP_NETWORK_@}" "${!GNUSTEP_LOCAL_@}" "${!GNUSTEP_USER_@}"
 do
-    echo launchctl setenv "$tehEnv" "${!tehEnv}"
+	[[ -n "${!tehEnv}" ]] &amp;&amp; launchctl setenv "$tehEnv" "${!tehEnv}"
 done
 		</string>
 	</array>
 	<key>WatchPaths</key>
 	<array>
 		<string>/Library/GNUstep/GNUstep.conf</string>
+		<string>/usr/local/share/GNUstep/GNUstep.conf</string>
 		<string>~/Library/Preferences/GNUstep.conf</string>
 	</array>
 	<key>RunAtLoad</key>
