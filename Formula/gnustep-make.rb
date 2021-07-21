@@ -35,7 +35,7 @@ class GnustepMake < Formula
     inreplace "FilesystemLayouts/macOS", "GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles", "GNUSTEP_MAKEFILES=/share/GNUstep/Makefiles" if build.head?
 
     args = [
-      "--with-config-file=#{prefix}/etc/GNUstep.conf",
+      "--with-config-file=#{etc}/GNUstep.conf",
       "--enable-native-objc-exceptions"
     ]
 
@@ -50,8 +50,14 @@ class GnustepMake < Formula
     args << "--with-library-combo=apple-apple-apple" unless build.with? "gnu"
     args << "--with-library-combo=gnu-gnu-gnu" if build.with? "gnu"
 
-    system "./configure", *std_configure_args, *args
-    system "make", "install", "tooldir=#{libexec}", "mandir=#{man}"
+    system "./configure",
+            *args
+    system "make",
+           "install",
+           "DESTDIR=#{prefix}",
+           "makedir=#{share}/GNUstep/Makefiles",
+           "tooldir=#{libexec}",
+           "mandir=#{man}"
   end
 
   test do
