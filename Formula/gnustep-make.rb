@@ -51,7 +51,7 @@ class GnustepMake < Formula
     args << "--with-library-combo=gnu-gnu-gnu" if build.with? "gnu"
 
     system "./configure", *std_configure_args, *args
-    system "make", "install", "tooldir=#{libexec}"
+    system "make", "install", "tooldir=#{libexec}", "mandir=#{man}"
   end
 
   test do
