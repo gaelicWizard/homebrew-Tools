@@ -32,6 +32,8 @@ class GnustepMake < Formula
   option "with-gnu", "Use library combo `gnu-gnu-gnu`"
 
   def install
+    inreplace "FilesystemLayouts/macOS", "GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles", "GNUSTEP_MAKEFILES=/share/GNUstep/Makefiles" if build.head?
+
     args = [
       "--with-config-file=#{prefix}/etc/GNUstep.conf",
       "--enable-native-objc-exceptions"
