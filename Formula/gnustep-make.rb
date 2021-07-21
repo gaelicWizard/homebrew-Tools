@@ -58,19 +58,19 @@ class GnustepMake < Formula
            "install",
            "DESTDIR=#{prefix}",
            "makedir=#{share}/GNUstep/Makefiles",
-           "tooldir=#{libexec}",
+           "tooldir=#{bin}",
            "mandir=#{man}",
            "GNUSTEP_CONFIG_FILE=#{prefix}/etc/GNUstep.conf"
 
     inreplace "#{prefix}/etc/GNUstep.conf",  /^GNUSTEP_MAKEFILES=.*$/, "GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
     inreplace "#{share}/GNUstep/Makefiles/GNUstep.sh",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
     inreplace "#{share}/GNUstep/Makefiles/GNUstep.csh", /^  setenv GNUSTEP_MAKEFILES \".*\"$/, "  setenv GNUSTEP_MAKEFILES \"#{opt_prefix}/share/GNUstep/Makefiles\""
-    inreplace "#{libexec}/gnustep-config",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
-    inreplace "#{libexec}/openapp",  /^  GNUSTEP_MAKEFILES=\".*\"$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
-    inreplace "#{libexec}/opentool",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{bin}/gnustep-config",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{bin}/openapp",  /^  GNUSTEP_MAKEFILES=\".*\"$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{bin}/opentool",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
   end
 
   test do
-    assert_match shell_output("#{libexec}/gnustep-config --variable=CC").chomp, ENV.cc
+    assert_match shell_output("#{bin}/gnustep-config --variable=CC").chomp, ENV.cc
   end
 end
