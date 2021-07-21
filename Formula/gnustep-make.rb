@@ -24,7 +24,6 @@ class GnustepMake < Formula
   option "without-strict", "Disable strict adherence to version 2 schema"
   option "without-arc", "Disable support for Automatic Reference Counting"
   option "without-strip", "Disable stripping comments from makefiles"
-  option "without-macOS", "Don't use new `MacOS` filesystem layout"
 
   option "with-import-config", "Import the system's existing configuration file"
   option "with-fhs", "Use GNUstep's `fhs-system` filesystem layout"
@@ -32,7 +31,6 @@ class GnustepMake < Formula
   option "with-gnu", "Use library combo `gnu-gnu-gnu`"
 
   def install
-    inreplace "FilesystemLayouts/macOS", "GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles", "GNUSTEP_MAKEFILES=#{opt_prefix}/share/GNUstep/Makefiles" if build.head?
     inreplace "GNUmakefile.in", "override GNUSTEP_CONFIG_FILE", "GNUSTEP_CONFIG_FILE"
 
     args = [
@@ -46,13 +44,16 @@ class GnustepMake < Formula
     args << "--enable-flattened" unless build.without? "universal"
     args << "--disable-install-ld-so-conf" unless build.with? "ld-so-conf"
     args << "--enable-objc-arc" unless build.without? "arc"
-    args << "--with-layout=MacOS" unless build.without? "macOS"
     args << "--with-layout=fhs-system" if build.with? "fhs"
+    args << "--with-layout=MacOS" if build.head?
     args << "--with-library-combo=apple-apple-apple" unless build.with? "gnu"
+    args << "--with-user-defaults-dir=Library/Preferences" unless build.with? "gnu"
     args << "--with-library-combo=gnu-gnu-gnu" if build.with? "gnu"
+    args << "GNUSTEP_MAKEFILES=#{share}/GNUstep/Makefiles"
 
     system "./configure",
             *args
+
     system "make",
            "install",
            "DESTDIR=#{prefix}",
@@ -60,6 +61,13 @@ class GnustepMake < Formula
            "tooldir=#{libexec}",
            "mandir=#{man}",
            "GNUSTEP_CONFIG_FILE=#{prefix}/etc/GNUstep.conf"
+
+    inreplace "#{prefix}/etc/GNUstep.conf",  /^GNUSTEP_MAKEFILES=.*$/, "GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{share}/GNUstep/Makefiles/GNUstep.sh",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{share}/GNUstep/Makefiles/GNUstep.csh", /^  setenv GNUSTEP_MAKEFILES \".*\"$/, "  setenv GNUSTEP_MAKEFILES \"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{libexec}/gnustep-config",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{libexec}/openapp",  /^  GNUSTEP_MAKEFILES=\".*\"$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
+    inreplace "#{libexec}/opentool",  /^  GNUSTEP_MAKEFILES=.*$/, "  GNUSTEP_MAKEFILES=\"#{opt_prefix}/share/GNUstep/Makefiles\""
   end
 
   test do
