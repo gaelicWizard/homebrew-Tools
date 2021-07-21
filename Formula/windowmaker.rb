@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Windowmaker < Formula
   desc "Window Maker is an X11 window manager originally designed to provide integration support for the GNUstep Desktop Environment, although it can run stand alone. In every way possible, it reproduces the elegant look and feel of the NeXTSTEP user interface."
   homepage "https://www.windowmaker.org/"
