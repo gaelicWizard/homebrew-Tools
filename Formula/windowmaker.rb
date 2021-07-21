@@ -4,7 +4,7 @@
 class Windowmaker < Formula
   desc "Window Maker is an X11 window manager originally designed to provide integration support for the GNUstep Desktop Environment, although it can run stand alone. In every way possible, it reproduces the elegant look and feel of the NeXTSTEP user interface."
   homepage "https://www.windowmaker.org/"
-  head "https://github.com/gaelicWizard/wmaker.git", branch: "newNext"
+  head "https://github.com/gaelicWizard/wmaker.git", branch: "macOS"
   url "https://repo.or.cz/wmaker-crm.git/snapshot/f9bc310fa686c226da42164ca04462e32a314b15.tar.gz"
   version "0.95.9"
   sha256 "921ea48954248f0d0ab13eb7724127469a2af7e90e22b2ae084cd3a0570bc520"
