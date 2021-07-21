@@ -21,16 +21,6 @@ class GnustepMake < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "f3fc8fa046eb3a370ecc6c263bba63257c570e9bad92bd2658fdea54c247f311"
   end
 
-head do
-  lib_jar = Dir["cfr-*-SNAPSHOT.jar"]
-  doc_jar = Dir["cfr-*-SNAPSHOT-javadoc.jar"]
-  odie "Unexpected number of artifacts!" if (lib_jar.length != 1) || (doc_jar.length != 1)
-end
-
-if build.with? "ham"
-  # note, no "with" in the option name (it is added by the build.with? method)
-end
-
   option "without-strict", "Disable strict adherence to version 2 schema"
   option "without-arc", "Disable support for Automatic Reference Counting"
   option "without-strip", "Disable stripping comments from makefiles"
