@@ -32,7 +32,8 @@ class GnustepMake < Formula
   option "with-gnu", "Use library combo `gnu-gnu-gnu`"
 
   def install
-    inreplace "FilesystemLayouts/macOS", "GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles", "GNUSTEP_MAKEFILES=/share/GNUstep/Makefiles" if build.head?
+    inreplace "FilesystemLayouts/macOS", "GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles", "GNUSTEP_MAKEFILES=#{opt_prefix}/share/GNUstep/Makefiles" if build.head?
+    inreplace "GNUmakefile.in", "override GNUSTEP_CONFIG_FILE", "GNUSTEP_CONFIG_FILE"
 
     args = [
       "--with-config-file=#{etc}/GNUstep.conf",
@@ -57,7 +58,8 @@ class GnustepMake < Formula
            "DESTDIR=#{prefix}",
            "makedir=#{share}/GNUstep/Makefiles",
            "tooldir=#{libexec}",
-           "mandir=#{man}"
+           "mandir=#{man}",
+           "GNUSTEP_CONFIG_FILE=#{prefix}/etc/GNUstep.conf"
   end
 
   test do
