@@ -7,7 +7,7 @@ cask 'perian' do
           :checkpoint => '11c4550ed6a328e6113b65e5af51338172bd0c63ad21bc20756a4d3f42393136'
   name 'Perian'
   homepage 'https://github.com/MaddTheSane/perian'
-  license :gpl
+#  license :gpl
 
   depends_on :cask => 'homebrew/cask-versions/quicktime-player7'
 
