@@ -19,3 +19,5 @@ https://github.com/Homebrew/homebrew-bundle#usage
 
 https://thoughtbot.com/blog/brew-leaves
 
+/System/Library/CoreServices/Applications/Archive Utility.app/Contents/Resources/Archives.prefPane
+
