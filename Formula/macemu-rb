@@ -6,6 +6,9 @@ class Macemu < Formula
   homepage ""
   url "https://github.com/kanjitalk755/macemu.git"
   omg "https://github.com/emaculation/macemu"
+  https://www.emaculation.com/doku.php/sheepshaver_mac_os_x_setup
+  https://www.emaculation.com/sheepshaver/build-history.txt
+  https://www.emaculation.com/forum/viewtopic.php?f=20&t=7360
   version ""
   sha256 ""
   license ""
