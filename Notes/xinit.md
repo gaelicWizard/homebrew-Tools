@@ -27,3 +27,26 @@ Should X.app incorporate xinit.m *interally* or launch as separate tool? Both (l
 defaults read org.Xquartz.X11 BackingStore, SaveUnders, Xinerama(?!?!?), GLX, iGLX, &c
 
 X.app needs to deal with dropping to "zero" clients, where "zero" is defined as server client plus pbproxy plus XXX?
+
+
+
+
+
+
+
+
+NSString* runShellCommand(NSString *command) {
+    NSTask *task = [[NSTask alloc] init];
+    task.environment = @{}; //If we don't reset this, launchd may try to inject QuickTimeFixer into our NSTask!
+    [task setLaunchPath:@"/bin/sh"];
+    [task setArguments:@[@"-c", command]];
+    
+    NSPipe *pipe = [[NSPipe alloc] init];
+    NSFileHandle *fileHandle = [pipe fileHandleForReading];
+    [task setStandardOutput:pipe];
+    [task launch];
+    [task waitUntilExit];
+    
+    NSData *data = [fileHandle readDataToEndOfFile];
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
