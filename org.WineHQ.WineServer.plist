@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Label</key><!-- $Id -->
+		<string>org.WineHQ.WineServer</string>
+		<key>ServiceDescription</key>
+		<string>Wine Is Not an Emulator ($Id$)</string>
+		<key>Program</key>
+		<string>/usr/local/opt/wine/bin/wineserver</string>
+		<key>ProgramArguments</key>
+		<array>
+			<string>wineserver</string>
+			<string>-f</string>
+			<string>-p</string>
+		</array>
+		<key>EnvironmentVariables</key>
+		<dict>
+			<key>WINEPREFIX</key>
+			<string>/Users/pellican/Library/Application Support/Darwine</string>
+        </dict>
+		<key>RunAtLoad</key>
+		<true/>
+	</dict>
+</plist>
