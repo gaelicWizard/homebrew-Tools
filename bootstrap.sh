@@ -8,6 +8,7 @@
 xcode-select -p || {
 	xcode-select --install
 	softwareupdate -i -a
+	sudo xcodebuild -license accept
 }
 
 curl -L "https://github.com/gaelicWizard/homebrew-Tools/HEAD/GNUmakefile" | exec gmake -f- -C ~
