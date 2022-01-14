@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Notes/notes.md",
+            "file": "Notes/setup.md",
             "mode": "source"
           }
         }
@@ -76,7 +76,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Notes/notes.md",
+            "file": "Notes/setup.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -93,6 +93,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Notes/setup.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -103,7 +104,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Notes/setup.md"
+          }
         }
       }
     ],
@@ -111,6 +114,7 @@
   },
   "active": "d108dc0f9d22491d",
   "lastOpenFiles": [
+    "Notes/setup.md",
     "Notes/notes.md",
     "Notes/next-info.md",
     "Notes/next-domains.md",
