@@ -1,1 +1,10 @@
-{}
+{
+  "spellcheck": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showLineNumber": true,
+  "tabSize": 3,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Notes",
+  "attachmentFolderPath": "./"
+}

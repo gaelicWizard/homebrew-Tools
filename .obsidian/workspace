@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Notes/brew.md",
+            "file": "Notes/notes.md",
             "mode": "source"
           }
         }
@@ -43,6 +43,25 @@
             "sortOrder": "alphabetical"
           }
         }
+      },
+      {
+        "id": "a9e73e13c1027f09",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "a533f3ad2b647af9",
+        "type": "leaf",
+        "state": {
+          "type": "starred",
+          "state": {}
+        }
       }
     ],
     "currentTab": 0
@@ -57,7 +76,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Notes/brew.md",
+            "file": "Notes/notes.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -67,12 +86,36 @@
             "unlinkedCollapsed": true
           }
         }
+      },
+      {
+        "id": "e41107b1a0772888",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "2490117f98e3e495",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {}
+        }
       }
     ],
     "currentTab": 0
   },
   "active": "d108dc0f9d22491d",
   "lastOpenFiles": [
+    "Notes/notes.md",
+    "Notes/next-info.md",
+    "Notes/next-domains.md",
+    "Notes/make.md",
+    "Notes/config.site.md",
     "Notes/brew.md"
   ]
 }
