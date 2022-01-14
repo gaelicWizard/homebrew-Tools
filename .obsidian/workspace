@@ -1,0 +1,78 @@
+{
+  "main": {
+    "id": "c5a5e3e12c19b850",
+    "type": "split",
+    "children": [
+      {
+        "id": "d108dc0f9d22491d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Notes/brew.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e4d0fb58ca516a5e",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "20de05688cd7495e",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "3854bb2e78368344",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "f43f537a1d9ca8b3",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "7fd751591fc89131",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Notes/brew.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "active": "d108dc0f9d22491d",
+  "lastOpenFiles": [
+    "Notes/brew.md"
+  ]
+}
